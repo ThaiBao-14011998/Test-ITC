@@ -1,0 +1,193 @@
+// Define variable here
+$df-fs: 16;
+$mobi-fs: 15;
+$mw-tablet: 1024px;
+$mw-mobile: 991px;
+$screen-mobile: 991px;
+$screen-mw-desktop: ($screen-mobile + 1);
+$c-white: #ffffff;
+$c-orange: #f7941c;
+$c-dark: #1d1d1d;
+$c-000: #000;
+$c-fff: #fff;
+$c-black: #000000;
+$c-dark-gray: #979797;
+$c-dark-grayish-blue: #a9aaad;
+$c-light-grayish-yellow: #dfdfd9;
+$c-red: #d0021b;
+$c-F36350: #f36350;
+$c-086433: #086433;
+$c-93C019: #93c019;
+
+@function toRem($value) {
+  $remValue: ($value/$df-fs)+rem;
+  @return $remValue;
+}
+
+.container {
+  max-width: toRem(1096);
+  padding-left: toRem(15);
+  padding-right: toRem(15);
+  @media (max-width: $screen-mobile) {
+    max-width: 100%;
+    padding-left: toRem(15);
+    padding-right: toRem(15);
+  }
+  .row {
+    margin-right: -(toRem(15));
+    margin-left: -(toRem(15));
+    @media (max-width: $screen-mobile) {
+      margin-right: -(toRem(15));
+      margin-left: -(toRem(15));
+    }
+  }
+  [class^="col-"],
+  [class*=" col-"] {
+    padding-right: toRem(15);
+    padding-left: toRem(15);
+    @media (max-width: $screen-mobile) {
+      padding-right: toRem(15);
+      padding-left: toRem(15);
+    }
+  }
+}
+.visible-desktop {
+  @media (max-width: $screen-mobile) {
+    display: none !important;
+  }
+}
+.visible-mobi {
+  @media (min-width: $screen-mw-desktop) {
+    display: none !important;
+  }
+}
+img,
+img.img-responsive {
+  max-width: none;
+  width: 100%;
+  height: auto;
+}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+dl,
+ol,
+ul {
+  margin-bottom: 0;
+}
+*:focus {
+  outline: none;
+}
+[type="reset"],
+[type="submit"],
+button,
+html [type="button"] {
+  -webkit-appearance: none;
+}
+.clearfix {
+  &::before,
+  &::after {
+    display: block;
+    clear: both;
+    content: "";
+  }
+}
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+@mixin padding-2($tb, $lr) {
+  padding: toRem($tb) toRem($lr);
+}
+@mixin padding-2-mobi($tb, $lr) {
+  padding: toRem($tb) toRem($lr);
+}
+@mixin padding-4($t, $r, $b, $l) {
+  padding: toRem($t) toRem($r) toRem($b) toRem($l);
+}
+@mixin padding-4-mobi($t, $r, $b, $l) {
+  padding: toRem($t) toRem($r) toRem($b)
+  toRem($l);
+}
+@mixin margin-2($tb, $lr) {
+  margin: toRem($tb) toRem($lr);
+}
+@mixin margin-2-mobi($tb, $lr) {
+  margin: toRem($tb) toRem($lr);
+}
+@mixin margin-4($t, $r, $b, $l) {
+  margin: toRem($t) toRem($r) toRem($b) toRem($l);
+}
+@mixin margin-4-mobi($t, $r, $b, $l) {
+  margin: toRem($t) toRem($r) toRem($b)
+  toRem($l);
+}
+@mixin width($px) {
+  width: toRem($px);
+}
+@mixin width-mobi($px) {
+  width: toRem($px);
+}
+@mixin height($px) {
+  height: toRem($px);
+}
+@mixin height-mobi($px) {
+  height: toRem($px);
+}
+@mixin font-size($px) {
+  font-size: toRem($px);
+}
+@mixin font-size-mobi($px) {
+  font-size: toRem($px);
+}
+@mixin font-property($fs, $lh) {
+  font-size: toRem($fs);
+  line-height: $lh;
+}
+@mixin font-property-mobi($fs, $lh) {
+  @media (max-width: $screen-mobile) {
+    font-size: toRem($fs);
+    line-height: $lh;
+  }
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+  &:hover {
+    color: inherit;
+    text-decoration: inherit;
+  }
+}
+a:hover {
+  text-decoration: none;
+}
+a:not([href]):not([tabindex]):focus,
+a:not([href]):not([tabindex]):hover {
+  color: $c-white;
+  text-decoration: none;
+}
+.desktop-item {
+  @media (max-width: $mw-mobile) {
+    display: none !important;
+  }
+}
+.mobile-item {
+  display: none !important;
+  @media (max-width: $mw-mobile) {
+    display: block !important;
+  }
+}
+
